@@ -1,0 +1,17 @@
+pipeline{
+    agent any
+    parameters{
+        
+        string(name:"deploymentName",description:"Deployment Name",defaultValue:"")
+        choice(choices:["EU-WEST-2A","EU-WEST-2B","EU-WEST-2C"],name="deployTo",description:"What AZ?")
+        booleanParam(defaultValue:false,description:"CONFIRM DEPLOYMENT?",name="CONFIRM DEPLOYMENT?")
+        
+    }
+    stages{
+        stage("Demo"){
+            steps {
+                echo "Deployment for ${deploymentName} is deployed to ${deployTo}"
+        }
+        }
+    }
+}

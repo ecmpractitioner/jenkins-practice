@@ -1,0 +1,19 @@
+pipeline{
+    agent any
+    environment{
+        def myString="Hello World"
+        def myNumber=10
+        def myBool=false
+    }
+    stages{
+        stage("Demo"){
+            steps{
+                echo "My String: ${myString}"
+                echo "My Number: ${myNumber}"
+                echo "My Bool: ${myBool}"
+                echo "Some Jenkins ENV variables used below \n"
+                echo "Running ${env.BUILD_NUMBER}"
+            }
+        }
+    }
+}
